@@ -1,16 +1,38 @@
 ---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Section from '../components/Section.astro';
+import Header from '../components/Header.astro';
+import Form from '../components/Form.astro';
+import StickyCTA from '../components/StickyCTA.astro';
+import { getCollection } from 'astro:content';
 
+// Get all sections and sort by order
+const sections = await getCollection('sections');
+const sortedSections = sections.sort((a, b) => a.data.order - b.data.order);
+
+// Separate sections: regular sections, benefits section, and form section
+const regularSections = sortedSections.filter(s => s.data.order < 4);
+const benefitsSection = sortedSections.find(s => s.data.order === 4);
+const subscribeSection = sortedSections.find(s => s.data.order === 5);
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout 
+  title="Lead Time GTM - Accelerate Your Go-To-Market Strategy"
+  description="Reduce time-to-market and accelerate growth with data-driven go-to-market strategies."
+>
+  <Header />
+  
+  <main id="main-content">
+    {regularSections.map((section) => (
+      <Section section={section} />
+    ))}
+    
+    {benefitsSection && <Section section={benefitsSection} />}
+    
+    {subscribeSection && (
+      <Form />
+    )}
+  </main>
+  
+  <StickyCTA />
+</BaseLayout>

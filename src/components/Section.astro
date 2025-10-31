@@ -1,0 +1,167 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  section: CollectionEntry<'sections'>;
+}
+
+const { section } = Astro.props;
+const { data, render } = section;
+
+const sectionId = `section-${data.order}`;
+const animationClass = data.animation === 'none' ? '' : `scroll-${data.animation}`;
+
+// Determine layout variant based on section order
+// Hero stays centered, others left-align for better readability
+const isHero = data.order === 1;
+const layoutClass = isHero ? 'items-center text-center' : 'items-start text-left';
+const containerClass = isHero ? 'max-w-4xl' : 'max-w-5xl';
+
+// Render the MDX content
+const { Content } = await render();
+---
+
+<section
+  id={sectionId}
+  data-section
+  class={`flex flex-col justify-center px-6 ${isHero ? 'pt-24 pb-8' : data.order === 3 ? 'py-20 md:px-12 pb-8 md:pb-12 pt-20 md:pt-32' : data.order === 4 ? 'py-8 md:px-12 pt-8 md:pt-12 pb-20 md:pb-32' : 'py-20 md:px-12 md:py-32'} ${animationClass}`}
+  style="transform: translate3d(0, 0, 0);"
+>
+  <div class={`w-full mx-auto ${containerClass}`}>
+    <div class={layoutClass}>
+      {data.subtitle && data.subtitle.trim() !== '' && (
+        <p class="section-subtitle mb-6">
+          {data.subtitle}
+        </p>
+      )}
+      
+      {data.media && data.media.position === 'top' && (
+        <div class="hero-container relative w-full mb-8 overflow-hidden rounded-2xl" style={`height: 60vh; min-height: 500px;`}>
+          <!-- Background image with overlay -->
+          <div 
+            class="hero-background absolute inset-0"
+            style={`background-image: url('${data.media.src}'); background-size: 105%; background-position: center; background-attachment: fixed;`}
+          >
+            <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/5"></div>
+          </div>
+          
+          <!-- Hero content -->
+          <div class="hero-content relative h-full flex items-center justify-center">
+            <div class="hero-card w-full h-full flex items-center">
+              <!-- Text container with background for readability -->
+              <div class="hero-text-container bg-white/95 backdrop-blur-sm rounded-none md:rounded-2xl p-6 md:p-10 lg:p-12 shadow-xl w-full h-full flex flex-col justify-center">
+                <!-- Main heading -->
+                <h1 class="hero-title text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 md:mb-8 text-gray-900 leading-tight tracking-tight">
+                  {data.title}
+                </h1>
+                
+                <!-- Content -->
+                <div class="hero-body prose prose-lg md:prose-xl max-w-3xl mb-8 md:mb-10 text-gray-700 leading-relaxed">
+                  <Content />
+                </div>
+                
+                <!-- CTA Button -->
+                {data.cta && (
+                  <div class="hero-cta">
+                  {data.cta.type === 'form' && (
+                    <a
+                      href="#cta-section"
+                      class="hero-button group inline-flex items-center justify-center gap-2 bg-gray-900 hover:bg-gray-800 text-white font-medium text-base md:text-lg px-8 md:px-10 py-4 md:py-5 rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-gray-900/20"
+                    >
+                      <span>{data.cta.text}</span>
+                      <svg class="w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                      </svg>
+                    </a>
+                  )}
+                  
+                  {data.cta.type === 'external' && data.cta.href && (
+                    <a
+                      href={data.cta.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="hero-button group inline-flex items-center justify-center gap-2 bg-gray-900 hover:bg-gray-800 text-white font-medium text-base md:text-lg px-8 md:px-10 py-4 md:py-5 rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-gray-900/20"
+                    >
+                      <span>{data.cta.text}</span>
+                      <svg class="w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                      </svg>
+                    </a>
+                  )}
+                  
+                  {data.cta.type === 'scroll' && (
+                    <button
+                      data-scroll-next
+                      class="hero-button group inline-flex items-center justify-center gap-2 bg-gray-900 hover:bg-gray-800 text-white font-medium text-base md:text-lg px-8 md:px-10 py-4 md:py-5 rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-gray-900/20"
+                    >
+                      <span>{data.cta.text}</span>
+                      <svg class="w-5 h-5 transform group-hover:translate-y-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </button>
+                  )}
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+      
+      {!data.media && (
+        <>
+          <h2 class="section-title mb-12">
+            {data.title}
+          </h2>
+          
+          <div class={`prose ${isHero ? 'mx-auto' : ''} ${isHero ? 'max-w-3xl' : 'max-w-none'}`}>
+            <Content />
+          </div>
+        </>
+      )}
+    
+      {data.cta && !data.media && (
+        <div class={`mt-16 ${isHero ? '' : 'ml-0'}`}>
+                  {data.cta.type === 'form' && (
+                    <a
+                      href="#cta-section"
+                      class="hero-button group inline-flex items-center justify-center gap-2 bg-gray-900 hover:bg-gray-800 text-white font-medium text-base md:text-lg px-8 md:px-10 py-4 md:py-5 rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-gray-900/20"
+                    >
+                      <span>{data.cta.text}</span>
+                      <svg class="w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                      </svg>
+                    </a>
+                  )}
+                  
+                  {data.cta.type === 'external' && data.cta.href && (
+                    <a
+                      href={data.cta.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="hero-button group inline-flex items-center justify-center gap-2 bg-gray-900 hover:bg-gray-800 text-white font-medium text-base md:text-lg px-8 md:px-10 py-4 md:py-5 rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-gray-900/20"
+                    >
+                      <span>{data.cta.text}</span>
+                      <svg class="w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                      </svg>
+                    </a>
+                  )}
+                  
+                  {data.cta.type === 'scroll' && (
+                    <button
+                      data-scroll-next
+                      class="hero-button group inline-flex items-center justify-center gap-2 bg-gray-900 hover:bg-gray-800 text-white font-medium text-base md:text-lg px-8 md:px-10 py-4 md:py-5 rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-gray-900/20"
+                    >
+                      <span>{data.cta.text}</span>
+                      <svg class="w-5 h-5 transform group-hover:translate-y-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </button>
+                  )}
+        </div>
+      )}
+    </div>
+  </div>
+</section>
+
