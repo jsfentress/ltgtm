@@ -1,4 +1,6 @@
 ---
+import '../styles/global.css';
+
 interface Props {
   title?: string;
   description?: string;
@@ -41,9 +43,6 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || "https://leadtime
     
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    
-    <!-- Styles -->
-    <link rel="stylesheet" href="/src/styles/global.css" />
   </head>
   <body>
     <a href="#main-content" class="skip-link">Skip to main content</a>
