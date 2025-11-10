@@ -1,0 +1,72 @@
+---
+// Avivar Capital-style navigation bar
+---
+
+<header class="header-main">
+  <!-- Main navigation bar -->
+  <nav class="header-nav">
+    <div class="max-w-7xl mx-auto h-full flex items-center justify-between">
+
+      <!-- Logo Section (Left) -->
+      <a href="/" class="header-logo">
+        <!-- Brand logo image -->
+        <img
+          src="/Logo.png"
+          alt="Lead Time GTM"
+          class="block h-12 w-auto"
+          width="440"
+          height="256"
+        />
+      </a>
+
+      <!-- Navigation Links (Center-Right) -->
+      <div class="flex items-center gap-8 md:gap-10">
+        <a href="/" class="nav-link">
+          Home
+        </a>
+        <a href="#cta-section" class="nav-link">
+          Contact
+        </a>
+      </div>
+
+    </div>
+  </nav>
+
+  <!-- Progress bar -->
+  <div class="progress-bar-bg">
+    <div
+      id="progress-bar"
+      class="progress-bar-fill"
+      style="width: 0%"
+    ></div>
+  </div>
+</header>
+
+<script>
+  // Update progress bar based on scroll
+  function updateProgressBar() {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrollProgress = (scrollTop / scrollHeight) * 100;
+    
+    const progressBar = document.getElementById('progress-bar');
+    if (progressBar) {
+      progressBar.style.width = `${scrollProgress}%`;
+    }
+  }
+  
+  // Ultra-optimized scroll handler - runs every frame for smoothness
+  let rafId = null;
+  window.addEventListener('scroll', () => {
+    if (rafId === null) {
+      rafId = requestAnimationFrame(() => {
+        updateProgressBar();
+        rafId = null;
+      });
+    }
+  }, { passive: true });
+  
+  // Initial update
+  updateProgressBar();
+</script>
+

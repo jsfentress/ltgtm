@@ -1,0 +1,111 @@
+---
+// Alternative Form Component - Clay-inspired Two-Column Design
+// Fresh redesign - clean, professional layout
+---
+
+<section id="cta-section" class="form-alt-clay">
+  <!-- Content -->
+  <div class="form-alt-clay-content">
+    <h2 class="form-alt-clay-title">See If AI-Augmented Outbound Fits Your Team</h2>
+    <p class="form-alt-clay-subtitle">
+      30-minute diagnostic. We'll assess whether AI can make your existing SDRs 3x more effective without adding headcount or replacing anyone.
+    </p>
+
+    <form
+      name="contact-alt"
+      method="POST"
+      data-netlify="true"
+      netlify-honeypot="bot-field"
+      class="form-alt-clay-form"
+    >
+      <input type="hidden" name="form-name" value="contact-alt" />
+
+      <!-- Honeypot field for spam protection -->
+      <p class="hidden">
+        <label>
+          Don't fill this out if you're human: <input name="bot-field" />
+        </label>
+      </p>
+
+      <!-- Two-column grid for name fields -->
+      <div class="form-alt-clay-grid">
+        <div class="form-alt-clay-field">
+          <label for="alt-name" class="form-alt-clay-label">Name *</label>
+          <input
+            type="text"
+            id="alt-name"
+            name="name"
+            required
+            class="form-alt-clay-input"
+            placeholder="Your name"
+          />
+        </div>
+
+        <div class="form-alt-clay-field">
+          <label for="alt-email" class="form-alt-clay-label">Email Address *</label>
+          <input
+            type="email"
+            id="alt-email"
+            name="email"
+            required
+            class="form-alt-clay-input"
+            placeholder="your@email.com"
+          />
+        </div>
+      </div>
+
+      <!-- Two-column grid for company and phone -->
+      <div class="form-alt-clay-grid">
+        <div class="form-alt-clay-field">
+          <label for="alt-company" class="form-alt-clay-label">Company</label>
+          <input
+            type="text"
+            id="alt-company"
+            name="company"
+            class="form-alt-clay-input"
+            placeholder="Your company"
+          />
+        </div>
+
+        <div class="form-alt-clay-field">
+          <label for="alt-phone" class="form-alt-clay-label">Phone</label>
+          <input
+            type="tel"
+            id="alt-phone"
+            name="phone"
+            class="form-alt-clay-input"
+            placeholder="(555) 123-4567"
+          />
+        </div>
+      </div>
+
+      <!-- Message field - full width -->
+      <div class="form-alt-clay-field">
+        <label for="alt-message" class="form-alt-clay-label">Message</label>
+        <textarea
+          id="alt-message"
+          name="message"
+          rows="4"
+          class="form-alt-clay-input form-alt-clay-textarea"
+          placeholder="Describe your current outbound setup and pipeline challenges..."
+        ></textarea>
+      </div>
+
+      <!-- Submit button -->
+      <div class="form-alt-clay-button-wrapper">
+        <button type="submit" class="form-alt-clay-button">
+          Request Diagnostic
+        </button>
+      </div>
+
+      <!-- Response time note -->
+      <p class="form-alt-clay-note">
+        We respond within 24 hours with next steps.
+      </p>
+    </form>
+  </div>
+</section>
+
+<style>
+  @import '../styles/form-alternative.css';
+</style>

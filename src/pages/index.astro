@@ -1,0 +1,62 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Section from '../components/Section.astro';
+import HeroAlternative from '../components/HeroAlternative.astro';
+import Header from '../components/Header.astro';
+import Form from '../components/Form.astro';
+import FormAlternative from '../components/FormAlternative.astro';
+import { getCollection } from 'astro:content';
+
+// ============================================
+// A/B TEST TOGGLES
+// ============================================
+// Hero: Set to true for animated gradient hero
+const USE_ALTERNATIVE_HERO = true;
+
+// Form: Set to true for minimalist inline form
+const USE_ALTERNATIVE_FORM = true;
+// ============================================
+
+// Get all sections and sort by order
+const sections = await getCollection('sections');
+const sortedSections = sections.sort((a, b) => a.data.order - b.data.order);
+
+// Get hero section for alternative hero
+const heroSection = sortedSections.find(s => s.data.order === 1);
+
+// Separate sections: regular sections (excluding hero if using alternative), benefits section, and form section
+const regularSections = sortedSections.filter(s =>
+  USE_ALTERNATIVE_HERO ? s.data.order > 1 && s.data.order < 4 : s.data.order < 4
+);
+const benefitsSection = sortedSections.find(s => s.data.order === 4);
+const subscribeSection = sortedSections.find(s => s.data.order === 5);
+---
+
+<BaseLayout
+  title="Lead Time GTM - Accelerate Your Go-To-Market Strategy"
+  description="Reduce time-to-market and accelerate growth with data-driven go-to-market strategies."
+>
+  <Header />
+
+  <main id="main-content">
+    {USE_ALTERNATIVE_HERO && heroSection ? (
+      <HeroAlternative
+        title={heroSection.data.title}
+        subtitle={heroSection.data.subtitle}
+        body=""
+        ctaText={heroSection.data.cta?.text || "Schedule Diagnostic"}
+        ctaHref={heroSection.data.cta?.type === "form" ? "#cta-section" : (heroSection.data.cta?.href || "#")}
+      />
+    ) : null}
+
+    {regularSections.map((section) => (
+      <Section section={section} />
+    ))}
+
+    {benefitsSection && <Section section={benefitsSection} />}
+
+    {subscribeSection && (
+      USE_ALTERNATIVE_FORM ? <FormAlternative /> : <Form />
+    )}
+  </main>
+</BaseLayout>

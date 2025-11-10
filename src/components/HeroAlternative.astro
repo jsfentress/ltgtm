@@ -1,0 +1,52 @@
+---
+// Alternative Hero Component - Animated Gradient Design
+// Built from scratch for A/B testing - zero dependencies
+
+interface Props {
+  title: string;
+  subtitle?: string;
+  body: string;
+  ctaText: string;
+  ctaHref: string;
+}
+
+const { title, subtitle, body, ctaText, ctaHref } = Astro.props;
+---
+
+<section class="hero-alt" id="hero-alternative">
+  <!-- Animated gradient layers -->
+  <div class="gradient-bg">
+    <div class="gradient-layer gradient-layer-1"></div>
+    <div class="gradient-layer gradient-layer-2"></div>
+    <div class="gradient-layer gradient-layer-3"></div>
+  </div>
+
+  <!-- Content -->
+  <div class="hero-alt-content">
+    <div class="hero-alt-wrapper">
+      <h1 class="hero-alt-title">{title}</h1>
+
+      {subtitle && (
+        <p class="hero-alt-subtitle">{subtitle}</p>
+      )}
+
+      <p class="hero-alt-body">{body}</p>
+
+      <div class="hero-alt-cta">
+        <a href={ctaHref} class="hero-alt-button">
+          <span>{ctaText}</span>
+          <svg class="hero-alt-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Transition fade to next section -->
+  <div class="hero-transition-fade"></div>
+</section>
+
+<style>
+  @import '../styles/hero-alternative.css';
+</style>
