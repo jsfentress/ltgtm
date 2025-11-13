@@ -1,0 +1,20 @@
+<svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Growth chart/results icon -->
+
+  <!-- Axes -->
+  <line x1="12" y1="44" x2="12" y2="12" stroke="#3b82f6" stroke-width="2"/>
+  <line x1="12" y1="44" x2="44" y2="44" stroke="#3b82f6" stroke-width="2"/>
+
+  <!-- Growth line -->
+  <polyline points="12,38 20,32 28,28 36,18 44,12" stroke="#3b82f6" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Data points -->
+  <circle cx="12" cy="38" r="3" fill="#3b82f6"/>
+  <circle cx="20" cy="32" r="3" fill="#3b82f6"/>
+  <circle cx="28" cy="28" r="3" fill="#3b82f6"/>
+  <circle cx="36" cy="18" r="3" fill="#3b82f6"/>
+  <circle cx="44" cy="12" r="3" fill="#3b82f6"/>
+
+  <!-- Upward arrow -->
+  <path d="M 40 16 L 44 12 L 48 16" stroke="#3b82f6" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

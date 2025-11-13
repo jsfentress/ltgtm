@@ -1,0 +1,15 @@
+<svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Human head/thinking icon -->
+  <circle cx="28" cy="20" r="10" stroke="#3b82f6" stroke-width="2" fill="none"/>
+
+  <!-- Body/shoulders -->
+  <path d="M 14 46 Q 14 32 28 32 Q 42 32 42 46" stroke="#3b82f6" stroke-width="2" fill="none"/>
+
+  <!-- Lightbulb/idea symbol inside head -->
+  <circle cx="28" cy="19" r="4" stroke="#3b82f6" stroke-width="1.5" fill="none"/>
+  <line x1="28" y1="23" x2="28" y2="25" stroke="#3b82f6" stroke-width="1.5"/>
+
+  <!-- Strategic lines/connections -->
+  <line x1="18" y1="38" x2="23" y2="34" stroke="#3b82f6" stroke-width="1.5" stroke-dasharray="2 2"/>
+  <line x1="38" y1="38" x2="33" y2="34" stroke="#3b82f6" stroke-width="1.5" stroke-dasharray="2 2"/>
+</svg>

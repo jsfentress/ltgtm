@@ -5,6 +5,7 @@ import HeroAlternative from '../components/HeroAlternative.astro';
 import Header from '../components/Header.astro';
 import Form from '../components/Form.astro';
 import FormAlternative from '../components/FormAlternative.astro';
+import Footer from '../components/Footer.astro';
 import { getCollection } from 'astro:content';
 
 // ============================================
@@ -59,4 +60,6 @@ const subscribeSection = sortedSections.find(s => s.data.order === 5);
       USE_ALTERNATIVE_FORM ? <FormAlternative /> : <Form />
     )}
   </main>
+
+  <Footer />
 </BaseLayout>

@@ -1,0 +1,161 @@
+---
+// Minimal footer with logo and copyright
+---
+
+<footer class="footer-main">
+  <div class="footer-container">
+
+    <!-- Logo Section -->
+    <div class="footer-logo-section">
+      <a href="/" class="footer-logo">
+        <img
+          src="/logo.svg"
+          alt="Lead Time GTM"
+          class="footer-logo-img"
+        />
+      </a>
+    </div>
+
+    <!-- Footer Content -->
+    <div class="footer-content">
+      <!-- Links -->
+      <nav class="footer-nav">
+        <a href="/" class="footer-link">Home</a>
+        <span class="footer-divider">•</span>
+        <a href="#cta-section" class="footer-link">Contact</a>
+      </nav>
+
+      <!-- Copyright -->
+      <p class="footer-copyright">
+        © {new Date().getFullYear()} Lead Time GTM. All rights reserved.
+      </p>
+    </div>
+
+  </div>
+</footer>
+
+<style>
+  .footer-main {
+    background: linear-gradient(135deg, #1e1b4b 0%, #1e293b 50%, #0f172a 100%);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: var(--spacing-12) var(--spacing-8);
+    margin-top: var(--spacing-24);
+  }
+
+  @media (min-width: 768px) {
+    .footer-main {
+      padding: var(--spacing-16) var(--spacing-12);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .footer-main {
+      padding: var(--spacing-16) var(--spacing-16);
+    }
+  }
+
+  .footer-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-6);
+  }
+
+  @media (min-width: 768px) {
+    .footer-container {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+  .footer-logo-section {
+    display: flex;
+    align-items: center;
+  }
+
+  .footer-logo {
+    display: flex;
+    align-items: center;
+    transition: opacity var(--anim-duration-base) var(--anim-easing);
+  }
+
+  .footer-logo:hover {
+    opacity: 0.8;
+  }
+
+  .footer-logo:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+    border-radius: var(--radius-sm);
+  }
+
+  .footer-logo-img {
+    height: 36px;
+    width: auto;
+    filter: brightness(0) invert(1);
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
+
+  .footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-3);
+  }
+
+  @media (min-width: 768px) {
+    .footer-content {
+      flex-direction: row;
+      gap: var(--spacing-6);
+    }
+  }
+
+  .footer-nav {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-3);
+  }
+
+  .footer-link {
+    font-family: var(--font-body);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    transition: color var(--anim-duration-base) var(--anim-easing);
+  }
+
+  .footer-link:hover {
+    color: var(--color-primary-light);
+  }
+
+  .footer-link:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+    border-radius: var(--radius-sm);
+  }
+
+  .footer-divider {
+    color: rgba(255, 255, 255, 0.3);
+    font-size: var(--font-size-sm);
+  }
+
+  .footer-copyright {
+    font-family: var(--font-body);
+    font-size: var(--font-size-sm);
+    color: rgba(255, 255, 255, 0.6);
+    margin: 0;
+  }
+
+  /* Respect reduced motion preferences */
+  @media (prefers-reduced-motion: reduce) {
+    .footer-logo,
+    .footer-link {
+      transition: none;
+    }
+  }
+</style>
