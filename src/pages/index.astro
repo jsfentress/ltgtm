@@ -46,7 +46,7 @@ const subscribeSection = sortedSections.find(s => s.data.order === 5);
         subtitle={heroSection.data.subtitle}
         body=""
         ctaText={heroSection.data.cta?.text || "Schedule Diagnostic"}
-        ctaHref={heroSection.data.cta?.type === "form" ? "#cta-section" : (heroSection.data.cta?.href || "#")}
+        ctaHref={heroSection.data.cta?.type === "form" ? "#contact" : (heroSection.data.cta?.href || "#")}
       />
     ) : null}
 

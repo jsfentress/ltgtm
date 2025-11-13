@@ -66,19 +66,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || "https://leadtime
               if (entry.isIntersecting && entry.intersectionRatio > 0.05) {
                 // Add class immediately for instant response
                 entry.target.classList.add('visible');
-                
-                // Update URL hash (defer to avoid blocking)
-                const id = entry.target.id;
-                if (id && id !== 'main-content') {
-                  const newHash = `#${id}`;
-                  if (window.location.hash !== newHash) {
-                    // Use microtask for non-blocking update
-                    Promise.resolve().then(() => {
-                      history.replaceState(null, '', newHash || window.location.pathname);
-                    });
-                  }
-                }
-                
+
                 // Dispatch event (async to not block rendering)
                 Promise.resolve().then(() => {
                   entry.target.dispatchEvent(new CustomEvent('section-viewed', {
