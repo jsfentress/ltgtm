@@ -521,9 +521,9 @@ section:last-child .prose strong {
 }
 
 .solution-intro-box p {
-  margin: 0 0 var(--spacing-4) 0;
+  margin: 0 0 var(--spacing-3) 0;
   font-size: var(--font-size-body);
-  line-height: var(--line-height-relaxed);
+  line-height: var(--line-height-normal);
   color: var(--color-text-light);
 }
 
@@ -535,9 +535,7 @@ section:last-child .prose strong {
   font-weight: var(--font-weight-semibold);
   color: var(--color-text);
   font-size: var(--font-size-body-lg);
-  margin-top: var(--spacing-6) !important;
-  padding-top: var(--spacing-6);
-  border-top: 1px solid rgba(59, 130, 246, 0.15);
+  margin-top: var(--spacing-8) !important;
 }
 
 /* Solution commitment box */
@@ -737,60 +735,45 @@ section:last-child .prose strong {
   }
 }
 
-/* Stat grid for capacity paradox section */
+/* Stat grid for capacity paradox section - matches SDR dilemma style */
 .stat-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: var(--spacing-6);
-  margin: var(--spacing-12) 0;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: var(--spacing-4);
+  margin: var(--spacing-8) 0;
+  padding: var(--spacing-8);
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.03) 0%, rgba(96, 165, 250, 0.03) 100%);
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(59, 130, 246, 0.1);
 }
 
 .stat-box {
-  background: rgba(59, 130, 246, 0.05);
-  border: 1px solid rgba(59, 130, 246, 0.15);
-  border-radius: var(--radius-md);
-  padding: var(--spacing-8) var(--spacing-6);
-  text-align: center;
-  transition: all var(--anim-duration-base) var(--anim-easing);
-  min-height: 140px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: var(--spacing-1);
+  padding: var(--spacing-3);
+  text-align: center;
 }
 
-.stat-box.highlight {
-  background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(96, 165, 250, 0.1) 100%);
-  border-color: var(--color-primary);
-  border-width: 2px;
-}
-
-.stat-box:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
+.stat-box.highlight .stat-number {
+  color: var(--color-primary);
 }
 
 .stat-number {
-  display: block;
-  font-size: clamp(1.75rem, 3.5vw, 2.25rem);
+  font-size: clamp(1.5rem, 3vw, 2rem);
   font-weight: var(--font-weight-bold);
   color: var(--color-primary);
-  line-height: 1.1;
-  margin-bottom: var(--spacing-3);
+  line-height: 1;
   white-space: nowrap;
 }
 
 .stat-label {
-  display: block;
-  font-size: 0.65rem;
+  font-size: var(--font-size-sm);
   color: var(--color-text-muted);
-  font-weight: var(--font-weight-medium);
-  text-transform: uppercase;
-  letter-spacing: 0.03em;
-  line-height: 1.4;
-  white-space: nowrap;
   text-align: center;
-  width: 100%;
+  line-height: 1.3;
 }
 
 /* Section connected wrapper - creates cohesive grouping */
@@ -839,6 +822,7 @@ section:last-child .prose strong {
   font-weight: var(--font-weight-bold);
   color: var(--color-primary);
   line-height: 1;
+  white-space: nowrap;
 }
 
 .problem-text {
@@ -926,7 +910,7 @@ section:last-child .prose strong {
 @media (max-width: 640px) {
   .stat-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: var(--spacing-4);
+    padding: var(--spacing-6);
   }
 
   .problem-stats {
@@ -945,13 +929,6 @@ section:last-child .prose strong {
 
   .section-connected-wrapper::before {
     width: 3px;
-  }
-}
-
-/* Reduced motion */
-@media (prefers-reduced-motion: reduce) {
-  .stat-box:hover {
-    transform: none;
   }
 }
 
