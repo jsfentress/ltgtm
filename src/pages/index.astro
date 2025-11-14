@@ -24,13 +24,13 @@ const sortedSections = sections.sort((a, b) => a.data.order - b.data.order);
 
 // Get hero section for alternative hero
 const heroSection = sortedSections.find(s => s.data.order === 1);
+const { Content: HeroContent } = heroSection ? await heroSection.render() : { Content: null };
 
-// Separate sections: regular sections (excluding hero if using alternative), benefits section, and form section
-const regularSections = sortedSections.filter(s =>
-  USE_ALTERNATIVE_HERO ? s.data.order > 1 && s.data.order < 4 : s.data.order < 4
+// Separate sections: content sections (excluding hero) and form
+// Content sections are orders 2-7, form section would be order 10 (or we render form component directly)
+const contentSections = sortedSections.filter(s =>
+  USE_ALTERNATIVE_HERO ? s.data.order > 1 && s.data.order < 10 : s.data.order < 10
 );
-const benefitsSection = sortedSections.find(s => s.data.order === 4);
-const subscribeSection = sortedSections.find(s => s.data.order === 5);
 ---
 
 <BaseLayout
@@ -44,21 +44,18 @@ const subscribeSection = sortedSections.find(s => s.data.order === 5);
       <HeroAlternative
         title={heroSection.data.title}
         subtitle={heroSection.data.subtitle}
-        body=""
         ctaText={heroSection.data.cta?.text || "Schedule Diagnostic"}
         ctaHref={heroSection.data.cta?.type === "form" ? "#contact" : (heroSection.data.cta?.href || "#")}
-      />
+      >
+        {HeroContent && <HeroContent />}
+      </HeroAlternative>
     ) : null}
 
-    {regularSections.map((section) => (
+    {contentSections.map((section) => (
       <Section section={section} />
     ))}
 
-    {benefitsSection && <Section section={benefitsSection} />}
-
-    {subscribeSection && (
-      USE_ALTERNATIVE_FORM ? <FormAlternative /> : <Form />
-    )}
+    {USE_ALTERNATIVE_FORM ? <FormAlternative /> : <Form />}
   </main>
 
   <Footer />

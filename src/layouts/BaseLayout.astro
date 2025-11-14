@@ -73,6 +73,9 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || "https://leadtime
                     detail: { sectionId: entry.target.id }
                   }));
                 });
+              } else {
+                // Remove class when scrolling back up
+                entry.target.classList.remove('visible');
               }
             });
           });

@@ -14,6 +14,7 @@ const animationClass = data.animation === 'none' ? '' : `scroll-${data.animation
 // Determine layout variant based on section order
 // All sections left-aligned to match form style
 const isHero = data.order === 1;
+const isFirstContentSection = data.order === 2;
 const layoutClass = 'items-start text-left';
 const containerClass = 'max-w-[800px]';
 
@@ -24,7 +25,7 @@ const { Content } = await render();
 <section
   id={sectionId}
   data-section
-  class={`flex flex-col justify-center px-6 md:px-12 py-16 md:py-24 ${animationClass}`}
+  class={`flex flex-col justify-center px-6 md:px-12 ${isFirstContentSection ? 'pt-24 md:pt-32 pb-10 md:pb-14' : 'py-10 md:py-14'} ${animationClass}`}
   style="transform: translate3d(0, 0, 0);"
 >
   <div class={`w-full mx-auto ${containerClass}`}>
@@ -108,7 +109,7 @@ const { Content } = await render();
       
       {!data.media && (
         <>
-          <h2 class="section-title mb-12">
+          <h2 class="section-title mb-8">
             {data.title}
           </h2>
 

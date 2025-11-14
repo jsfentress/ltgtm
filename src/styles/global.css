@@ -322,7 +322,7 @@ h4 {
   font-weight: var(--font-weight-bold);
   line-height: var(--line-height-tight);
   letter-spacing: -0.02em;
-  margin-bottom: var(--spacing-6);
+  margin-bottom: var(--spacing-4);
 }
 
 .section-subtitle {
@@ -553,6 +553,220 @@ section:last-child .prose strong {
   font-size: var(--font-size-body);
   font-weight: var(--font-weight-medium);
   color: var(--color-text);
+}
+
+/* How It Works list - clean numbered items */
+.how-it-works-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-6);
+  margin: var(--spacing-6) 0;
+}
+
+.how-it-works-item {
+  padding-left: var(--spacing-6);
+  border-left: 2px solid rgba(59, 130, 246, 0.2);
+}
+
+.how-it-works-item h3 {
+  font-size: var(--font-size-body-lg);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text);
+  margin: 0 0 var(--spacing-2) 0;
+  line-height: var(--line-height-tight);
+}
+
+.how-it-works-item p {
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-relaxed);
+  color: var(--color-text-light);
+  margin: 0;
+}
+
+/* Outcomes list - clean benefit items */
+.outcomes-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--spacing-4);
+  margin: var(--spacing-6) 0;
+}
+
+.outcome-item {
+  padding: var(--spacing-4);
+  background: rgba(59, 130, 246, 0.02);
+  border: 1px solid rgba(59, 130, 246, 0.08);
+  border-radius: var(--radius-sm);
+  transition: transform var(--anim-duration-base) var(--anim-easing),
+              border-color var(--anim-duration-base) var(--anim-easing);
+}
+
+.outcome-item:hover {
+  transform: translateY(-2px);
+  border-color: rgba(59, 130, 246, 0.15);
+}
+
+.outcome-item h3 {
+  font-size: var(--font-size-body-lg);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text);
+  margin: 0 0 var(--spacing-2) 0;
+  line-height: var(--line-height-tight);
+}
+
+.outcome-item p {
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-relaxed);
+  color: var(--color-text-light);
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .outcomes-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Proof list - clean client type list */
+.proof-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3);
+  margin: var(--spacing-6) 0;
+}
+
+.proof-item {
+  padding-left: var(--spacing-6);
+  border-left: 2px solid rgba(59, 130, 246, 0.2);
+}
+
+.proof-item p {
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-relaxed);
+  color: var(--color-text-light);
+  margin: 0;
+}
+
+/* Testimonial box - premium styling */
+.testimonial-box {
+  margin: var(--spacing-8) 0 0 0;
+  padding: var(--spacing-6);
+  background: rgba(59, 130, 246, 0.03);
+  border: 1px solid rgba(59, 130, 246, 0.1);
+  border-radius: var(--radius-md);
+}
+
+.testimonial-quote {
+  font-size: var(--font-size-body-lg);
+  line-height: var(--line-height-loose);
+  color: var(--color-text);
+  margin: 0 0 var(--spacing-4) 0;
+  font-style: italic;
+}
+
+.testimonial-attribution {
+  font-size: var(--font-size-body);
+  color: var(--color-text-light);
+  margin: 0;
+  font-style: normal;
+}
+
+/* Getting Started list - numbered steps */
+.getting-started-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-6);
+  margin: var(--spacing-6) 0;
+}
+
+.getting-started-item {
+  padding-left: var(--spacing-6);
+  border-left: 2px solid rgba(59, 130, 246, 0.2);
+}
+
+.getting-started-item h3 {
+  font-size: var(--font-size-body-lg);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text);
+  margin: 0 0 var(--spacing-2) 0;
+  line-height: var(--line-height-tight);
+}
+
+.getting-started-item p {
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-relaxed);
+  color: var(--color-text-light);
+  margin: 0;
+}
+
+/* Final CTA box */
+.final-cta-box {
+  margin: var(--spacing-8) 0 0 0;
+  padding: var(--spacing-8);
+  background: rgba(59, 130, 246, 0.04);
+  border: 1px solid rgba(59, 130, 246, 0.12);
+  border-radius: var(--radius-md);
+  text-align: center;
+}
+
+.final-cta-heading {
+  font-size: var(--font-size-body-lg);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text);
+  margin: 0 0 var(--spacing-6) 0;
+  line-height: var(--line-height-tight);
+}
+
+.final-cta-buttons {
+  display: flex;
+  gap: var(--spacing-4);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: var(--spacing-4) var(--spacing-8);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-medium);
+  text-decoration: none;
+  transition: all var(--anim-duration-base) var(--anim-easing);
+  cursor: pointer;
+}
+
+.cta-primary {
+  background: var(--color-primary);
+  color: white;
+  border: 2px solid var(--color-primary);
+}
+
+.cta-primary:hover {
+  background: var(--color-primary-dark);
+  border-color: var(--color-primary-dark);
+  transform: translateY(-2px);
+}
+
+.cta-secondary {
+  background: transparent;
+  color: var(--color-primary);
+  border: 2px solid var(--color-primary);
+}
+
+.cta-secondary:hover {
+  background: rgba(59, 130, 246, 0.05);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 640px) {
+  .final-cta-buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .cta-button {
+    width: 100%;
+    text-align: center;
+  }
 }
 
 /* Feature items with icons */
@@ -987,25 +1201,25 @@ section:last-child .prose strong {
 }
 
 /* Ultra-smooth scroll-triggered animations */
-.scroll-fade-in {
+.scroll-fade, .scroll-fade-in {
   opacity: 0;
-  transform: translate3d(0, 10px, 0); /* Use translate3d for GPU */
-  transition: opacity var(--anim-duration-fast) var(--anim-easing),
-              transform var(--anim-duration-fast) var(--anim-easing);
+  transform: translate3d(0, 30px, 0); /* Use translate3d for GPU */
+  transition: opacity 600ms var(--anim-easing),
+              transform 600ms var(--anim-easing);
   will-change: opacity, transform;
   backface-visibility: hidden;
 }
 
-.scroll-fade-in.visible {
+.scroll-fade.visible, .scroll-fade-in.visible {
   opacity: 1;
   transform: translate3d(0, 0, 0);
 }
 
 .scroll-slide-up {
   opacity: 0;
-  transform: translate3d(0, 20px, 0);
-  transition: opacity var(--anim-duration-base) var(--anim-easing),
-              transform var(--anim-duration-base) var(--anim-easing);
+  transform: translate3d(0, 40px, 0);
+  transition: opacity 700ms var(--anim-easing),
+              transform 700ms var(--anim-easing);
   will-change: opacity, transform;
   backface-visibility: hidden;
 }
@@ -1013,6 +1227,63 @@ section:last-child .prose strong {
 .scroll-slide-up.visible {
   opacity: 1;
   transform: translate3d(0, 0, 0);
+}
+
+/* Animate content within sections */
+[data-section]:not(.visible) .section-title,
+[data-section]:not(.visible) .section-subtitle,
+[data-section]:not(.visible) .prose,
+[data-section]:not(.visible) .capacity-content-box,
+[data-section]:not(.visible) .how-it-works-list,
+[data-section]:not(.visible) .outcomes-list,
+[data-section]:not(.visible) .proof-list,
+[data-section]:not(.visible) .testimonial-box,
+[data-section]:not(.visible) .getting-started-list,
+[data-section]:not(.visible) .final-cta-box,
+[data-section]:not(.visible) .form-alt-clay-content {
+  opacity: 0;
+  transform: translate3d(0, 30px, 0);
+  transition: opacity 600ms var(--anim-easing),
+              transform 600ms var(--anim-easing);
+}
+
+[data-section].visible .section-title,
+[data-section].visible .section-subtitle,
+[data-section].visible .prose,
+[data-section].visible .capacity-content-box,
+[data-section].visible .how-it-works-list,
+[data-section].visible .outcomes-list,
+[data-section].visible .proof-list,
+[data-section].visible .testimonial-box,
+[data-section].visible .getting-started-list,
+[data-section].visible .final-cta-box,
+[data-section].visible .form-alt-clay-content {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+/* Stagger child elements for a cascading effect */
+[data-section].visible .section-title {
+  transition-delay: 0ms;
+}
+
+[data-section].visible .section-subtitle {
+  transition-delay: 100ms;
+}
+
+[data-section].visible .prose,
+[data-section].visible .capacity-content-box,
+[data-section].visible .how-it-works-list,
+[data-section].visible .outcomes-list,
+[data-section].visible .proof-list,
+[data-section].visible .getting-started-list {
+  transition-delay: 150ms;
+}
+
+[data-section].visible .testimonial-box,
+[data-section].visible .final-cta-box,
+[data-section].visible .form-alt-clay-content {
+  transition-delay: 200ms;
 }
 
 .scroll-parallax {
