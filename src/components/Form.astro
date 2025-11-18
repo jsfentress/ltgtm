@@ -1,103 +1,93 @@
 ---
-// Netlify Forms integration
+// Form Component - Brutalist Design
+// Clean black/white contact form with Netlify integration
 ---
 
-<section id="contact" class="min-h-screen flex items-center justify-center px-4 py-16 pb-32 form-section">
-  <!-- Very subtle animated gradient layers -->
-  <div class="form-gradient-layer form-gradient-layer-1"></div>
-  <div class="form-gradient-layer form-gradient-layer-2"></div>
+<section id="contact" class="py-24 px-6 bg-gray-50 border-b border-black" data-section>
+  <div class="max-w-2xl mx-auto">
+    <h2 class="text-3xl md:text-4xl font-bold mb-6 text-center">Request a Diagnostic</h2>
+    <p class="text-lg mb-12 text-center text-gray-700">
+      Let's talk about your market and how timing plays into your outbound motion.
+    </p>
 
-  <div class="max-w-2xl w-full mx-auto">
-    <div class="form-card">
-      <h2 class="form-title">
-        See If AI-Augmented Outbound Fits Your Team
-      </h2>
-      <p class="form-subtitle">
-        30-minute diagnostic. We'll assess whether AI can make your existing SDRs 3x more effective without adding headcount or replacing anyone.
+    <form
+      name="contact"
+      method="POST"
+      data-netlify="true"
+      netlify-honeypot="bot-field"
+      action="/success"
+      class="space-y-6"
+    >
+      <input type="hidden" name="form-name" value="contact" />
+
+      <!-- Honeypot -->
+      <p class="hidden">
+        <label>
+          Don't fill this out: <input name="bot-field" />
+        </label>
       </p>
-      
-      <form 
-        name="contact" 
-        method="POST" 
-        data-netlify="true" 
-        netlify-honeypot="bot-field"
-        class="space-y-6"
+
+      <!-- Name -->
+      <div>
+        <label for="name" class="block text-sm font-semibold mb-2">Name *</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          required
+          class="w-full px-4 py-3 border-2 border-black focus:outline-none focus:border-gray-600 transition-colors"
+          placeholder="Your name"
+        />
+      </div>
+
+      <!-- Email -->
+      <div>
+        <label for="email" class="block text-sm font-semibold mb-2">Email *</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          required
+          class="w-full px-4 py-3 border-2 border-black focus:outline-none focus:border-gray-600 transition-colors"
+          placeholder="your@email.com"
+        />
+      </div>
+
+      <!-- Company -->
+      <div>
+        <label for="company" class="block text-sm font-semibold mb-2">Company</label>
+        <input
+          type="text"
+          id="company"
+          name="company"
+          class="w-full px-4 py-3 border-2 border-black focus:outline-none focus:border-gray-600 transition-colors"
+          placeholder="Your company"
+        />
+      </div>
+
+      <!-- Message -->
+      <div>
+        <label for="message" class="block text-sm font-semibold mb-2">Tell us about your vertical</label>
+        <textarea
+          id="message"
+          name="message"
+          rows="4"
+          class="w-full px-4 py-3 border-2 border-black focus:outline-none focus:border-gray-600 transition-colors resize-none"
+          placeholder="Describe your market and how opportunities typically emerge..."
+        ></textarea>
+      </div>
+
+      <!-- Submit -->
+      <button
+        type="submit"
+        class="w-full bg-black text-white font-bold px-8 py-4 text-lg hover:bg-white hover:text-black border-2 border-black transition-all duration-300"
       >
-        <input type="hidden" name="form-name" value="contact" />
-        
-        <!-- Honeypot field for spam protection -->
-        <p class="hidden">
-          <label>
-            Don't fill this out if you're human: <input name="bot-field" />
-          </label>
-        </p>
-        
-        <div>
-          <label for="name" class="form-label">
-            Name *
-          </label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            required
-            class="form-input"
-            placeholder="Your name"
-          />
-        </div>
+        Submit Request
+      </button>
 
-        <div>
-          <label for="email" class="form-label">
-            Email Address *
-          </label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            required
-            class="form-input"
-            placeholder="your@email.com"
-          />
-        </div>
-
-        <div>
-          <label for="company" class="form-label">
-            Company
-          </label>
-          <input
-            type="text"
-            id="company"
-            name="company"
-            class="form-input"
-            placeholder="Your company"
-          />
-        </div>
-
-        <div>
-          <label for="message" class="form-label">
-            Message
-          </label>
-          <textarea
-            id="message"
-            name="message"
-            rows="4"
-            class="form-input"
-            placeholder="Describe your current outbound setup and pipeline challenges..."
-          ></textarea>
-        </div>
-
-        <button
-          type="submit"
-          class="btn btn-primary btn-lg w-full"
-        >
-          <span>Request Diagnostic</span>
-        </button>
-
-        <p class="text-sm text-gray-500 text-center mt-4">
-          We respond within 24 hours with next steps.
-        </p>
-      </form>
-    </div>
+      <p class="text-sm text-center text-gray-600 mt-4">
+        We'll respond within 24 hours.
+      </p>
+    </form>
   </div>
 </section>
-

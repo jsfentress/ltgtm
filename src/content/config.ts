@@ -1,12 +1,19 @@
 import { defineCollection, z } from 'astro:content';
 
 const sections = defineCollection({
-  type: 'content',
   schema: z.object({
-    title: z.string(),
+    title: z.string().optional(),
     subtitle: z.string().optional(),
+    label: z.string().optional(),
     order: z.number(),
-    animation: z.enum(['fade', 'slide-up', 'parallax', 'none']).default('fade'),
+    inverted: z.boolean().optional(),
+    maxWidth: z.string().optional(),
+    border: z.boolean().optional(),
+    animation: z.enum(['fade', 'slide-up', 'parallax', 'none']).optional(),
+    checkmarks: z.array(z.object({
+      icon: z.enum(['check', 'clock', 'chat']),
+      text: z.string(),
+    })).optional(),
     cta: z.object({
       text: z.string(),
       type: z.enum(['form', 'external', 'scroll']),
@@ -15,10 +22,11 @@ const sections = defineCollection({
     media: z.object({
       src: z.string(),
       alt: z.string(),
-      position: z.enum(['top', 'side', 'bg']).default('side'),
+      position: z.enum(['top', 'side', 'bg']),
     }).optional(),
   }),
 });
 
-export const collections = { sections };
-
+export const collections = {
+  sections,
+};

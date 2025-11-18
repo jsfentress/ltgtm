@@ -1,61 +1,43 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Section from '../components/Section.astro';
-import HeroAlternative from '../components/HeroAlternative.astro';
+import Hero from '../components/Hero.astro';
 import Header from '../components/Header.astro';
 import Form from '../components/Form.astro';
-import FormAlternative from '../components/FormAlternative.astro';
 import Footer from '../components/Footer.astro';
 import { getCollection } from 'astro:content';
-
-// ============================================
-// A/B TEST TOGGLES
-// ============================================
-// Hero: Set to true for animated gradient hero
-const USE_ALTERNATIVE_HERO = true;
-
-// Form: Set to true for minimalist inline form
-const USE_ALTERNATIVE_FORM = true;
-// ============================================
 
 // Get all sections and sort by order
 const sections = await getCollection('sections');
 const sortedSections = sections.sort((a, b) => a.data.order - b.data.order);
 
-// Get hero section for alternative hero
+// Get hero section (order 1)
 const heroSection = sortedSections.find(s => s.data.order === 1);
-const { Content: HeroContent } = heroSection ? await heroSection.render() : { Content: null };
 
-// Separate sections: content sections (excluding hero) and form
-// Content sections are orders 2-7, form section would be order 10 (or we render form component directly)
-const contentSections = sortedSections.filter(s =>
-  USE_ALTERNATIVE_HERO ? s.data.order > 1 && s.data.order < 10 : s.data.order < 10
-);
+// Get content sections (orders 2+)
+const contentSections = sortedSections.filter(s => s.data.order > 1);
 ---
 
 <BaseLayout
-  title="Lead Time GTM - Accelerate Your Go-To-Market Strategy"
-  description="Reduce time-to-market and accelerate growth with data-driven go-to-market strategies."
+  title="Lead Time GTM - Right Time, Relevant Conversations"
+  description="Lead Time GTM helps your team reach out when something real has changed inside an account."
 >
   <Header />
 
   <main id="main-content">
-    {USE_ALTERNATIVE_HERO && heroSection ? (
-      <HeroAlternative
-        title={heroSection.data.title}
-        subtitle={heroSection.data.subtitle}
-        ctaText={heroSection.data.cta?.text || "Schedule Diagnostic"}
-        ctaHref={heroSection.data.cta?.type === "form" ? "#contact" : (heroSection.data.cta?.href || "#")}
-      >
-        {HeroContent && <HeroContent />}
-      </HeroAlternative>
-    ) : null}
+    {heroSection && (
+      <Hero
+        title={heroSection.data.title || ''}
+        subtitle={heroSection.data.subtitle || ''}
+        checkmarks={heroSection.data.checkmarks || []}
+      />
+    )}
 
     {contentSections.map((section) => (
       <Section section={section} />
     ))}
 
-    {USE_ALTERNATIVE_FORM ? <FormAlternative /> : <Form />}
+    <Form />
   </main>
 
   <Footer />
