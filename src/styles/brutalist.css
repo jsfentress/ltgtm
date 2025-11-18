@@ -55,6 +55,17 @@ h1 {
   box-shadow: 12px 12px 0px 0px rgba(0, 0, 0, 1);
 }
 
+/* Hover-only shadow with smooth transition */
+.brutal-shadow-hover {
+  box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 1);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.brutal-shadow-hover:hover {
+  box-shadow: 8px 8px 0px 0px rgba(0, 0, 0, 1);
+  transform: translate(-2px, -2px);
+}
+
 /* Scrollbar Styling */
 ::-webkit-scrollbar {
   width: 8px;
