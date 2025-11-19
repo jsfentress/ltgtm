@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lead Time GTM - Right Time, Relevant Conversations</title>
+    <meta name="description" content="Lead Time GTM helps your team reach out when something real has changed inside an account.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Custom underline animation */
+        .hover-underline-animation {
+            display: inline-block;
+            position: relative;
+        }
+
+        .hover-underline-animation::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            transform: scaleX(0);
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: currentColor;
+            transform-origin: bottom right;
+            transition: transform 0.25s ease-out;
+        }
+
+        .hover-underline-animation:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+
+        /* Hide scrollbar for clean look but allow scroll */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #ffffff;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #000000;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #333;
+        }
+    </style>
+</head>
+<body class="bg-white text-black antialiased selection:bg-black selection:text-white">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-sm border-b border-black">
+        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+            <div class="text-xl font-bold tracking-tighter uppercase border-2 border-black px-2 py-1">
+                Lead Time GTM
+            </div>
+            <a href="#contact" class="text-sm font-semibold hover-underline-animation hidden sm:block">
+                Get Started
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 px-6 border-b border-black">
+        <div class="max-w-4xl mx-auto">
+            <h1 class="text-5xl md:text-7xl font-black tracking-tight leading-[1.1] mb-8">
+                You're Reaching the Right Companies at the <span class="underline decoration-4 underline-offset-4">Wrong Time</span>.
+            </h1>
+
+            <p class="text-xl md:text-2xl font-light leading-relaxed mb-12 text-gray-800 max-w-2xl">
+                Lead Time GTM helps your team reach out when something real has changed inside an account, so your outreach feels relevant and conversations start warmer.
+            </p>
+
+            <div class="grid gap-6 mb-12 border-l-4 border-black pl-6">
+                <div class="flex items-start gap-3">
+                    <svg class="w-6 h-6 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <p class="text-lg">We monitor your market for signs that an account's situation just shifted (hiring, risk, operations, product usage).</p>
+                </div>
+                <div class="flex items-start gap-3">
+                    <svg class="w-6 h-6 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <p class="text-lg">We highlight the accounts that are most likely to be open to a conversation <strong>right now</strong>, not "someday."</p>
+                </div>
+                <div class="flex items-start gap-3">
+                    <svg class="w-6 h-6 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"></path></svg>
+                    <p class="text-lg">We help you build plays and messaging that speak directly to that shift, so replies and meetings improve in quality.</p>
+                </div>
+            </div>
+
+            <div class="flex flex-col sm:flex-row gap-4 items-start sm:items-center">
+                <button class="bg-black text-white text-lg font-bold px-8 py-4 hover:bg-white hover:text-black border-2 border-black transition-all duration-300">
+                    Request a Diagnostic
+                </button>
+                <button class="text-black text-lg font-medium px-8 py-4 hover:bg-gray-100 border-2 border-transparent transition-all duration-300 flex items-center gap-2">
+                    See How It Works <span aria-hidden="true">→</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Section 1: The Problem (Inverted Colors) -->
+    <section class="bg-black text-white py-24 px-6">
+        <div class="max-w-4xl mx-auto">
+            <span class="uppercase tracking-widest text-sm font-bold border-b border-white pb-1 mb-6 inline-block">The Problem</span>
+
+            <h2 class="text-3xl md:text-5xl font-bold mb-8 leading-tight">
+                Most outbound doesn't fail because you picked the wrong companies.
+            </h2>
+            <p class="text-xl md:text-2xl mb-12 text-gray-300">
+                It fails because you're talking to good-fit accounts <strong>before</strong> or <strong>after</strong> the moment they actually care.
+            </p>
+
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <p class="mb-4 font-semibold uppercase text-sm text-gray-400">The Symptoms:</p>
+                    <ul class="space-y-4 text-lg">
+                        <li class="flex items-center gap-3 border-l-2 border-white pl-4">
+                            "Timing isn't right."
+                        </li>
+                        <li class="flex items-center gap-3 border-l-2 border-white pl-4">
+                            "Not a priority right now."
+                        </li>
+                        <li class="flex items-center gap-3 border-l-2 border-white pl-4">
+                            Or no response at all from people you know you can help.
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="bg-white text-black p-8 md:p-10">
+                    <p class="text-xl font-medium mb-6">
+                        You're doing the work. You're just not lining that work up with the moments when something inside the account has actually changed.
+                    </p>
+                    <p class="text-lg">
+                        Lead Time GTM fixes the <strong>timing and relevance</strong> piece, so when you do reach out, there's a clear reason for that message to land in their inbox this week.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: How It Works -->
+    <section class="py-24 px-6 border-b border-black">
+        <div class="max-w-7xl mx-auto">
+            <div class="max-w-3xl mb-16">
+                <span class="uppercase tracking-widest text-sm font-bold border-b-2 border-black pb-1 mb-6 inline-block">How It Works</span>
+                <h2 class="text-4xl font-bold mb-4">We add a timing layer on top of your existing target account list.</h2>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Step 1 -->
+                <div class="border-2 border-black p-8 hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-shadow duration-300 bg-white">
+                    <div class="text-6xl font-black mb-6 opacity-20">01</div>
+                    <h3 class="text-2xl font-bold mb-4">Spot Real-World Changes</h3>
+                    <p class="mb-6">We work with you to define the kinds of changes that matter in your market, like:</p>
+                    <ul class="space-y-2 text-sm list-disc list-inside mb-6">
+                        <li>New roles or leadership shifts</li>
+                        <li>New sites, offerings, or initiatives</li>
+                        <li>Risk, compliance, or capacity events</li>
+                        <li>Usage patterns signaling strain</li>
+                    </ul>
+                    <p class="font-medium border-t border-black pt-4">Then we monitor for those changes across your target accounts.</p>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="border-2 border-black p-8 hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-shadow duration-300 bg-white">
+                    <div class="text-6xl font-black mb-6 opacity-20">02</div>
+                    <h3 class="text-2xl font-bold mb-4">Turn Changes into Account Lists</h3>
+                    <p class="mb-6">When changes happen, we turn them into focused lists with context on what changed and why it creates a buying window.</p>
+
+                    <div class="bg-black text-white p-4 text-sm italic my-4">
+                        "Here are the accounts where something just happened that makes a conversation about your solution make sense now."
+                    </div>
+
+                    <p class="font-medium border-t border-black pt-4">Instead of a static ICP list, you get a <strong>moving picture</strong>.</p>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="border-2 border-black p-8 hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-shadow duration-300 bg-white">
+                    <div class="text-6xl font-black mb-6 opacity-20">03</div>
+                    <h3 class="text-2xl font-bold mb-4">Build Plays Around Those Moments</h3>
+                    <p class="mb-6">We help your team design outreach plays that:</p>
+                    <ul class="space-y-2 text-sm list-disc list-inside mb-6">
+                        <li>Reference the specific change ("you just…")</li>
+                        <li>Tie that change to a clear "why talk now?"</li>
+                        <li>Fit into your existing channels</li>
+                    </ul>
+                    <p class="font-medium border-t border-black pt-4">The result is outreach that feels like it has a reason to exist.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: In Practice -->
+    <section class="py-24 px-6 bg-gray-50 border-b border-black">
+        <div class="max-w-5xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div>
+                    <span class="uppercase tracking-widest text-sm font-bold border-b-2 border-black pb-1 mb-6 inline-block">In Practice</span>
+                    <h2 class="text-4xl font-bold mb-6">A weekly rhythm for your team.</h2>
+                    <p class="text-lg mb-8">On a regular rhythm (weekly or monthly), your team gets:</p>
+
+                    <ul class="space-y-6">
+                        <li class="flex items-start">
+                            <div class="bg-black text-white w-8 h-8 flex items-center justify-center rounded-full mr-4 shrink-0 font-bold">1</div>
+                            <p>A <strong>prioritized list</strong> of accounts where we've seen meaningful shifts.</p>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="bg-black text-white w-8 h-8 flex items-center justify-center rounded-full mr-4 shrink-0 font-bold">2</div>
+                            <p>A short explanation of <strong>what changed</strong> and <strong>why it matters</strong>.</p>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="bg-black text-white w-8 h-8 flex items-center justify-center rounded-full mr-4 shrink-0 font-bold">3</div>
+                            <p>Suggested <strong>angles and plays</strong> your team can adapt in their own voice.</p>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="space-y-8">
+                    <div class="opacity-50 text-center">
+                        <p class="text-sm uppercase tracking-widest mb-2">Instead of:</p>
+                        <div class="text-2xl font-serif italic">"Who should we hit this week?"</div>
+                    </div>
+
+                    <div class="flex justify-center">
+                        <svg class="w-8 h-8 text-black animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+                    </div>
+
+                    <div class="border-2 border-black bg-white p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transform rotate-1 text-center">
+                        <p class="text-sm uppercase tracking-widest mb-2 font-bold">You start from:</p>
+                        <div class="text-2xl font-bold">"Here are the accounts where the timing actually makes sense to start a conversation."</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: Outcomes -->
+    <section class="bg-black text-white py-24 px-6" id="contact">
+        <div class="max-w-4xl mx-auto text-center">
+            <span class="uppercase tracking-widest text-sm font-bold border-b border-white pb-1 mb-8 inline-block">Outcomes to Expect</span>
+
+            <div class="grid md:grid-cols-3 gap-8 text-left mb-16">
+                <div class="border border-white/30 p-6">
+                    <h4 class="text-xl font-bold mb-3">More Relevant</h4>
+                    <p class="text-gray-400">Outreach lands as relevant to the people receiving it.</p>
+                </div>
+                <div class="border border-white/30 p-6">
+                    <h4 class="text-xl font-bold mb-3">Real Conversations</h4>
+                    <p class="text-gray-400">A higher share of replies turn into real conversations, not just polite deferrals.</p>
+                </div>
+                <div class="border border-white/30 p-6">
+                    <h4 class="text-xl font-bold mb-3">Live Pipeline</h4>
+                    <p class="text-gray-400">Your pipeline starts to reflect live changes, not just a spreadsheet of "good-fit logos."</p>
+                </div>
+            </div>
+
+            <h2 class="text-3xl md:text-5xl font-bold mb-8 leading-tight">
+                We build the conditions for your team to show up at the <span class="text-gray-400 line-through decoration-2">wrong</span> right time.
+            </h2>
+
+            <div class="flex flex-col sm:flex-row justify-center gap-4 mt-12">
+                <button class="bg-white text-black text-lg font-bold px-10 py-4 hover:bg-transparent hover:text-white border-2 border-white transition-colors duration-300">
+                    Request a Diagnostic
+                </button>
+            </div>
+
+            <p class="mt-16 text-sm text-gray-500">
+                &copy; 2025 Lead Time GTM. All rights reserved.
+            </p>
+        </div>
+    </section>
+
+</body>
+</html>
